@@ -1,7 +1,8 @@
 import 'package:basquet_client/data/cart_repo.dart';
-import 'package:basquet_client/domain/product.dart';
 import 'package:get_it/get_it.dart';
 import 'package:rxdart/rxdart.dart';
+
+import 'model.dart';
 
 class Cart {
   final BehaviorSubject<CartData> _data = BehaviorSubject();
@@ -40,11 +41,4 @@ class ErrorLoadingCart extends CartData {
   final String error;
 
   ErrorLoadingCart({this.error = ""});
-}
-
-class CartItem {
-  final Product product;
-  final int count;
-
-  CartItem(this.product, this.count);
 }

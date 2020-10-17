@@ -8,6 +8,7 @@ class ProductsPage extends StatefulWidget {
 class _ProductsPageState extends State<ProductsPage> {
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(),
       body: Container(
