@@ -66,7 +66,8 @@ class AppColors {
 }
 
 class AppUrls {
-  static const String base_url = 'http://10.0.2.2:8080';
+  // static const String base_url = 'http://10.0.2.2:8080';
+  static const String base_url = 'http://0.0.0.0:8080';
   static const String image_url = '$base_url/public/image';
   static const String api_url = "$base_url/";
 }

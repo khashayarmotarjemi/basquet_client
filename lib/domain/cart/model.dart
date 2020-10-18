@@ -1,4 +1,4 @@
-import 'package:basquet_client/domain/product/product.dart';
+import 'package:basquet_client/domain/product/model.dart';
 
 class CartItem {
   final Product product;

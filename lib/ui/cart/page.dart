@@ -1,8 +1,8 @@
-import 'package:basquet_client/domain/cart/cart.dart';
+import 'package:basquet_client/domain/cart/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
-import 'cart_item_list.dart';
+import 'list.dart';
 
 class CartPage extends StatefulWidget {
   @override
@@ -10,7 +10,7 @@ class CartPage extends StatefulWidget {
 }
 
 class _CartPageState extends State<CartPage> {
-  final Cart _cart = GetIt.I<Cart>();
+  final CartBloc _cart = GetIt.I<CartBloc>();
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,9 @@ class _CartPageState extends State<CartPage> {
             final cartData = snapshot.data;
 
             if (cartData is CartLoaded) {
-              return Center(
+              return Container(
+                alignment: Alignment.center,
+                padding: EdgeInsets.symmetric(vertical: 200),
                 child: CartListWidget(
                   cartItems: cartData.items,
                 ),

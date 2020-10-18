@@ -1,14 +1,15 @@
 import 'package:basquet_client/data/cart_repo.dart';
 import 'package:basquet_client/data/netclient.dart';
-import 'package:basquet_client/ui/cart/cart_page.dart';
-import 'package:basquet_client/ui/product/products_page.dart';
+import 'package:basquet_client/data/product_repo.dart';
+import 'package:basquet_client/domain/product/bloc.dart';
+import 'package:basquet_client/ui/cart/page.dart';
+import 'package:basquet_client/ui/product/page.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
-import 'domain/cart/cart.dart';
+import 'domain/cart/bloc.dart';
 
 void main() {
-
   // the order should be correct here
 
   final Net _net = Net();
@@ -17,11 +18,16 @@ void main() {
   final CartRepository _cartRepository = CartRepository();
   GetIt.I.registerSingleton(_cartRepository);
 
-  final Cart _cart = Cart();
+  final CartBloc _cart = CartBloc();
   GetIt.I.registerSingleton(_cart);
 
-  ///////////////////////////////////
+  final ProductsRepository _productsRepository = ProductsRepository();
+  GetIt.I.registerSingleton(_productsRepository);
 
+  final ProductsBloc _productsBloc = ProductsBloc();
+  GetIt.I.registerSingleton(_productsBloc);
+
+  ///////////////////////////////////
 
   runApp(MyApp());
 }
@@ -34,7 +40,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: CartPage(),
+      home: ProductsPage(),
     );
   }
 }
